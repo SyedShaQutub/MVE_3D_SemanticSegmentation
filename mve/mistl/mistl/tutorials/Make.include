@@ -1,0 +1,38 @@
+
+LIBDIR=../lib
+AR=ar
+
+MAKEDEPEND= gcc -M
+
+#PROGNAME=$(MODULE)
+
+
+
+## Targets
+# first target is executed by default if no target is specified
+all: prog dep
+
+CC      = g++
+DEBUG= -g
+CFLAGS  = $(DEBUG) -Wall -O6  -funroll-loops  -I../../include $(INCL) -std=c++0x -DUSE_OPENCV
+LDFLAGS = $(DEBUG) -fopenmp
+LIBS	= ../../lib/libmistl.a /usr/local/lib/dlmVoodooIO/libdlmVoodooIO.a /usr/local/lib/dlm/libdlm_static.a 
+CFLAGS+=`pkg-config --cflags opencv`
+LDFLAGS+=`pkg-config --libs opencv`
+
+dep: $(DEP)
+
+%.dep: %.cc
+	$(MAKEDEPEND) $(CFLAGS) $< -o $@ $(LOCALLIBINCL)
+
+
+%.o: %.cc
+	$(CC) $(CFLAGS) -c $<
+
+
+prog: $(OBJ)
+	$(CC) -o $(PROGNAME) $(OBJ) $(LDFLAGS) $(LIBS)
+
+
+clean:
+	rm -f *.dep *.o *.a $(PROGNAME)

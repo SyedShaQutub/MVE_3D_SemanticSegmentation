@@ -1,0 +1,35 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "g++ build and debug active file",
+            "type": "cppdbg",
+            "request": "launch",
+            //"program": "${fileDirname}/${fileBasenameNoExtension}",
+            //"program": "${fileDirname}/../mve/apps/fssrecon/fssrecon",
+            //"program": "${fileDirname}/../mve/apps/scene2pset/scene2pset",
+            "program": "${fileDirname}/../mve/apps/essbt/essbt",
+            //"args": ["-s 1.0", "${PWD}/pointcloud_files/road_data/export_points.ply", "${PWD}/pointcloud_files/road_data/output_densecloud.ply"],
+            //"args": ["-s 2.0 ./../../../pointcloud_files/export_densecloud.ply ./../../../output_densecloud"],            
+            //"args": ["-F2", "/qutub/models/project_3d/MVE_FSSR_parallel_baseline/datasets/mve_rosselerstr_2/scene_dir_debug_1/", "/qutub/models/project_3d/MVE_FSSR_parallel_baseline/datasets/mve_rosselerstr_2/scene_dir_debug_1/pset-L2.ply"],
+            "args": ["-f1", "/qutub/models/project_3d/MVE_FSSR_parallel_baseline/datasets/mve_rosselerstr_2/scene_dir_debug_1/surface-L2-clean.ply", "/qutub/models/project_3d/MVE_FSSR_parallel_baseline/datasets/mve_rosselerstr_2/scene_dir_debug_1/surface-L2-clean.obj", "/qutub/models/project_3d/MVE_FSSR_parallel_baseline/datasets/mve_rosselerstr_2/scene_dir_debug_1/"], 
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "g++ build active file",
+            "miDebuggerPath": "/usr/bin/gdb"
+        }
+    ]
+}

@@ -1,0 +1,175 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  Ts/call  Ts/call  name    
+ 32.00      0.08     0.08                             mve::geom::load_ply_mesh(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+ 24.00      0.14     0.06                             mve::geom::save_ply_mesh(std::shared_ptr<mve::TriangleMesh const>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, mve::geom::SavePLYOptions const&)
+ 20.00      0.19     0.05                             mve::save_photosynther_bundle(std::shared_ptr<mve::Bundle const>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+  8.00      0.21     0.02                             mve::load_nvm_bundle(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::vector<mve::NVMCameraInfo, std::allocator<mve::NVMCameraInfo> >*)
+  6.00      0.23     0.02                             mve::Scene::save_scene()
+  6.00      0.24     0.02                             mve::Scene::save_bundle()
+  4.00      0.25     0.01                             mve::geom::save_mesh(std::shared_ptr<mve::TriangleMesh const>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+  0.00      0.25     0.00        1     0.00     0.00  cvflann::anyimpl::small_any_policy<bool>::clone(void* const*, void**)
+  0.00      0.25     0.00        1     0.00     0.00  main
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 2 byte(s) for 4.00% of 0.25 seconds
+
+index % time    self  children    called     name
+                                                 <spontaneous>
+[1]     32.0    0.08    0.00                 mve::geom::load_ply_mesh(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [1]
+-----------------------------------------------
+                                                 <spontaneous>
+[2]     24.0    0.06    0.00                 mve::geom::save_ply_mesh(std::shared_ptr<mve::TriangleMesh const>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, mve::geom::SavePLYOptions const&) [2]
+-----------------------------------------------
+                                                 <spontaneous>
+[3]     20.0    0.05    0.00                 mve::save_photosynther_bundle(std::shared_ptr<mve::Bundle const>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [3]
+-----------------------------------------------
+                                                 <spontaneous>
+[4]      8.0    0.02    0.00                 mve::load_nvm_bundle(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::vector<mve::NVMCameraInfo, std::allocator<mve::NVMCameraInfo> >*) [4]
+-----------------------------------------------
+                                                 <spontaneous>
+[5]      6.0    0.02    0.00                 mve::Scene::save_scene() [5]
+-----------------------------------------------
+                                                 <spontaneous>
+[6]      6.0    0.02    0.00                 mve::Scene::save_bundle() [6]
+-----------------------------------------------
+                                                 <spontaneous>
+[7]      4.0    0.01    0.00                 mve::geom::save_mesh(std::shared_ptr<mve::TriangleMesh const>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [7]
+-----------------------------------------------
+                0.00    0.00       1/1           essbt::facecam_Superpos_new(std::shared_ptr<mve::TriangleMesh>&, std::shared_ptr<mve::Bundle const> const&, std::vector<std::shared_ptr<mve::View>, std::allocator<std::shared_ptr<mve::View> > > const&, std::vector<cv::Mat, std::allocator<cv::Mat> >, unsigned long) [314]
+[8]      0.0    0.00    0.00       1         main [8]
+-----------------------------------------------
+                0.00    0.00       1/1           cvflann::anyimpl::typed_base_any_policy<cvflann::flann_centers_init_t>::type() [403]
+[15]     0.0    0.00    0.00       1         cvflann::anyimpl::small_any_policy<bool>::clone(void* const*, void**) [15]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function is in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Index by function name
+
+   [4] mve::load_nvm_bundle(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::vector<mve::NVMCameraInfo, std::allocator<mve::NVMCameraInfo> >*) [2] mve::geom::save_ply_mesh(std::shared_ptr<mve::TriangleMesh const>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, mve::geom::SavePLYOptions const&) [6] mve::Scene::save_bundle()
+   [3] mve::save_photosynther_bundle(std::shared_ptr<mve::Bundle const>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [7] mve::geom::save_mesh(std::shared_ptr<mve::TriangleMesh const>, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [15] cvflann::anyimpl::small_any_policy<bool>::clone(void* const*, void**)
+   [1] mve::geom::load_ply_mesh(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [5] mve::Scene::save_scene() [8] main

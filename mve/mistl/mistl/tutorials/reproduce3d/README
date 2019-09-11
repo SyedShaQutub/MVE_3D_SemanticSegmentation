@@ -1,0 +1,24 @@
+#
+# program projects a 2D pixel into the 3D world
+# 
+#
+#
+# Given 2 images I1, I2 of the same scene, take with different cameras and
+# the corresponding camera files (in *.ycam format) C1, C2.
+# An image point P1 with corresponding coordinates in I1 and I2 (in general 
+# not the same coordinates) will be projected into the world.
+#
+#
+# ./reproduce3d camera1.ycam camera2.ycam <x-coord in I1> <y-coord in I1> <x-coord in I2> <y-coord in I2>
+# e.g: ./reproduce3d camera1.ycam camera2.ycam 1897 1476 1866 1342
+# 
+#
+# By adding the coordinates of another image point, a second point will be projected 
+# into 3D space and the distance to the first one will be computed.
+# ./reproduce3d camera1.ycam camera2.ycam <x-coord-P1 in I1> <y-coord-P1 in I1> <x-coord-P1 in I2> <y-coord-P1 in I2> <x-coord-P2 in I1> <y-coord-P2 in I1> <x-coord-P2 in I2> <y-coord-P2 in I2>
+# e.g: ./reproduce3d camera1.ycam camera2.ycam 1862 1468 1831 1333 1897 1476 1866 1342
+
+
+
+
+

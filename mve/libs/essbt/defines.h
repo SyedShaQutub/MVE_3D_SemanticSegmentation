@@ -1,0 +1,10 @@
+#ifndef ESSBT_DEFINES_HEADER
+#define ESSBT_DEFINES_HEADER
+
+
+#define ESSBT_NAMESPACE_BEGIN namespace essbt {
+    
+#define ESSBT_NAMESPACE_END }
+
+
+#endif /* ESSBT_DEFINES_HEADER */

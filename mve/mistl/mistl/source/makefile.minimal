@@ -1,0 +1,49 @@
+#
+# a makefile for a minimal multi-camera-calibration system
+#
+LIBDIR=../lib
+AR=ar
+MODULE=mistl
+MAKEDEPEND= gcc -M
+
+LIBNAME=lib$(MODULE).a
+OBJ=Camera.o ReadCamera.o WriteCamera.o OCV_Camera.o Error.o ReadCoordinateFile.o MultiCameraCalibration.o Line3.o \
+	MultiCameraCalibrationAdd.o WriteOBJ.o VisualizeCamera.o DistortionKP.o \
+	MultiCameraCalibrationOptimize.o UnDistortImage.o CameraYAML.o TransformYAML.o
+
+DEP	:= $(OBJ:%.o=%.dep)
+
+## Targets
+# first target is executed by default if no target is specified
+all: lib dep
+
+CC      = /usr/bin/gcc
+DEBUG	= -g -DDEBUG -Wall
+OPTIMIZE =
+CFLAGS  = $(DEBUG) $(OPTIMIZE)  -funroll-loops  -I../include -I.. -std=c++0x -DDLM_1_3 -DUSE_OPENCV
+LDFLAGS = 
+
+
+dep: $(DEP)
+
+%.dep: %.cc
+	$(MAKEDEPEND) $(CFLAGS) $< -o $@ $(LOCALLIBINCL)
+
+
+%.o: %.cc
+	$(CC) $(CFLAGS) -c $<
+
+
+lib: $(LIBDIR)/$(LIBNAME)
+
+## targets rules for static libraries
+$(LIBDIR)/$(LIBNAME): $(OBJ)
+	@echo "ARCHIVING static library $(LIBNAME) ..."
+	@$(AR) $(ARFLAGS) $@ $(OBJ)
+#	$(AR) ruvs $(LIBNAME) `lorder $(OBJ)|tsort`
+	@echo "done $@ !"
+
+clean:
+	rm *.o *.a *.dep
+
+-include $(DEP)

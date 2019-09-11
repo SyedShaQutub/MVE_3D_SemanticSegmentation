@@ -1,0 +1,51 @@
+
+
+#################################
+## ICE Calibration Notes 
+## 
+## O. Grau, May 2014
+###
+
+
+## Note in some of the *.cahv files the pixel size is wrong by 3 orders of magnitudes. It should be 1e-2 to be 10um 
+##
+
+
+Single camera calibration: 
+
+use ICE/camcal
+
+camcal -o $cam"_%02d.cahv" -n -s 0.0705 -d 11 7  -k 2 $cam/00000086.jpg $cam/00000584.jpg $cam/00000830.jpg
+
+camcal -o cam00.cahv -n -s 0.0705 -d 11 7  -k 2 ../data/IVCI/calibration/cam01/00000086.jpg ../data/IVCI/calibration/cam01/00000584.jpg ../data/IVCI/calibration/cam01/00000830.jpg
+
+-----
+
+Multi-camera calibration (topt with additional argumanet):
+
+./multicamcal -topt 0,1,2  -otrans "to%02d.yml" ../data/IVCI/calibration/cam01_00.ycam ../data/IVCI/calibration/cam01.wim ../data/IVCI/calibration/cam01_00.ycam ../data/IVCI/calibration/cam02.wim ../data/IVCI/calibration/cam01_00.ycam ../data/IVCI/calibration/cam03.wim
+
+This takes the same camera file for all initial cameras. 
+
+Generates new camera files: cam00.ycam .. cam02.ycam
+
+
+-----
+
+
+multi-cal from image features:
+
+./freecal  -opt -p fcal.pl cal_chart/cam00.cahv ../fextract/coordinate-cam00.coord cal_chart/cam01.cahv ../fextract/coordinate-cam01.coord cal_chart/cam02.cahv ../fextract/coordinate-cam02.coord 
+
+./freecal  -opt -p fcal.pl ../data/IVCI/calibration/cam01_01.cahv ../fextract/coordinate-cam00.coord ../data/IVCI/calibration/cam02_01.cahv  ../fextract/coordinate-cam01.coord ../data/IVCI/calibration/cam03_01.cahv  ../fextract/coordinate-cam02.coord 
+
+
+
+######################
+
+new version of multicamcal allows enabling induvidual transformation objects and fixing camera pose or position:
+
+For DavisReef data from one chart: 
+
+~/project/ICE/multicamcal/multicamcal -topt 0 -fixcampos 0,1,2 -o ./chart2/ -otrans "to%02d.yml" initial2/cam00.ycam chart/Cam0.coord  initial2/cam01.ycam chart/Cam1.coord initial2/cam02.ycam chart/Cam2.coord
+
