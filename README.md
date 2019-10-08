@@ -24,7 +24,7 @@ c path export - export PATH=/path/to/folder/mve/apps/__module__:$PATH
 
 ## Results  
 ![Alt text](/images/final_semanseg.png?raw=true "Title")
-
+![Alt text](/images/fig2.png?raw=true "Title")
 
 # Introduction ![Build Status](https://travis-ci.org/simonfuhrmann/mve.svg?branch=master)
 
